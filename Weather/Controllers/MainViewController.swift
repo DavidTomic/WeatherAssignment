@@ -18,8 +18,11 @@ class MainViewController: UITabBarController {
         view.backgroundColor = .white
         
         let todayScreen = TodayViewController()
+        todayScreen.edgesForExtendedLayout = []
         todayScreen.title = R.string.localizable.tab_bar_item_title_today()
+        
         let forecastScreen = ForecastViewController()
+        forecastScreen.edgesForExtendedLayout = []
         forecastScreen.title = R.string.localizable.tab_bar_item_title_forecast()
         
         setViewControllers([todayScreen, forecastScreen], animated: false)

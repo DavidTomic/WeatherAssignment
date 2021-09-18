@@ -16,6 +16,13 @@
 		1D43F0C526F5BA03007CFA4D /* ForecastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D43F0C426F5BA03007CFA4D /* ForecastViewController.swift */; };
 		1D43F0CB26F5C0DE007CFA4D /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D43F0CA26F5C0DE007CFA4D /* R.generated.swift */; };
 		1D43F0D026F5C30E007CFA4D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D43F0D226F5C30E007CFA4D /* Localizable.strings */; };
+		1D43F0D426F5C4B3007CFA4D /* TodayInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D43F0D326F5C4B3007CFA4D /* TodayInteractor.swift */; };
+		1D43F0D626F5C4DC007CFA4D /* TodayInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D43F0D526F5C4DC007CFA4D /* TodayInitializer.swift */; };
+		1D43F0D826F5C7DC007CFA4D /* TodayViewController+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D43F0D726F5C7DC007CFA4D /* TodayViewController+Layout.swift */; };
+		1D43F0DB26F5C852007CFA4D /* StyleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D43F0DA26F5C852007CFA4D /* StyleExtensions.swift */; };
+		1D43F0DE26F5CAC4007CFA4D /* ScreenTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D43F0DD26F5CAC4007CFA4D /* ScreenTitleView.swift */; };
+		1D43F0E026F5E364007CFA4D /* UIStackViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D43F0DF26F5E364007CFA4D /* UIStackViewExtension.swift */; };
+		1D43F0E226F5F907007CFA4D /* RectangularDashedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D43F0E126F5F907007CFA4D /* RectangularDashedView.swift */; };
 		9FA6D5C55D24E82E784F0925 /* Pods_Weather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54D6D798055C714FBA7B876A /* Pods_Weather.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +39,13 @@
 		1D43F0C426F5BA03007CFA4D /* ForecastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastViewController.swift; sourceTree = "<group>"; };
 		1D43F0CA26F5C0DE007CFA4D /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		1D43F0D126F5C30E007CFA4D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1D43F0D326F5C4B3007CFA4D /* TodayInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayInteractor.swift; sourceTree = "<group>"; };
+		1D43F0D526F5C4DC007CFA4D /* TodayInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayInitializer.swift; sourceTree = "<group>"; };
+		1D43F0D726F5C7DC007CFA4D /* TodayViewController+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TodayViewController+Layout.swift"; sourceTree = "<group>"; };
+		1D43F0DA26F5C852007CFA4D /* StyleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleExtensions.swift; sourceTree = "<group>"; };
+		1D43F0DD26F5CAC4007CFA4D /* ScreenTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTitleView.swift; sourceTree = "<group>"; };
+		1D43F0DF26F5E364007CFA4D /* UIStackViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewExtension.swift; sourceTree = "<group>"; };
+		1D43F0E126F5F907007CFA4D /* RectangularDashedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangularDashedView.swift; sourceTree = "<group>"; };
 		54D6D798055C714FBA7B876A /* Pods_Weather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Weather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		932A5EF341D83061FDC9DCCB /* Pods-Weather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.release.xcconfig"; path = "Target Support Files/Pods-Weather/Pods-Weather.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,9 +83,12 @@
 		1D43F0A926F5B07C007CFA4D /* Weather */ = {
 			isa = PBXGroup;
 			children = (
-				1D43F0C126F5B9D5007CFA4D /* Controllers */,
 				1D43F0C026F5B9AB007CFA4D /* AppDelegate */,
+				1D43F0C126F5B9D5007CFA4D /* Controllers */,
+				1D43F0D926F5C848007CFA4D /* Extensions */,
+				1D43F0E326F5FA2B007CFA4D /* Models */,
 				1D43F0C826F5BB37007CFA4D /* Resources */,
+				1D43F0DC26F5CAAF007CFA4D /* Views */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -79,8 +96,8 @@
 		1D43F0C026F5B9AB007CFA4D /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
-				1D43F0AC26F5B07C007CFA4D /* SceneDelegate.swift */,
 				1D43F0AA26F5B07C007CFA4D /* AppDelegate.swift */,
+				1D43F0AC26F5B07C007CFA4D /* SceneDelegate.swift */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -99,6 +116,9 @@
 			isa = PBXGroup;
 			children = (
 				1D43F0C226F5B9F8007CFA4D /* TodayViewController.swift */,
+				1D43F0D326F5C4B3007CFA4D /* TodayInteractor.swift */,
+				1D43F0D526F5C4DC007CFA4D /* TodayInitializer.swift */,
+				1D43F0D726F5C7DC007CFA4D /* TodayViewController+Layout.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -114,13 +134,38 @@
 		1D43F0C826F5BB37007CFA4D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				1D43F0B526F5B07F007CFA4D /* LaunchScreen.storyboard */,
-				1D43F0B826F5B07F007CFA4D /* Info.plist */,
 				1D43F0B326F5B07F007CFA4D /* Assets.xcassets */,
-				1D43F0CA26F5C0DE007CFA4D /* R.generated.swift */,
+				1D43F0B826F5B07F007CFA4D /* Info.plist */,
+				1D43F0B526F5B07F007CFA4D /* LaunchScreen.storyboard */,
 				1D43F0D226F5C30E007CFA4D /* Localizable.strings */,
+				1D43F0CA26F5C0DE007CFA4D /* R.generated.swift */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		1D43F0D926F5C848007CFA4D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1D43F0DA26F5C852007CFA4D /* StyleExtensions.swift */,
+				1D43F0DF26F5E364007CFA4D /* UIStackViewExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1D43F0DC26F5CAAF007CFA4D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1D43F0DD26F5CAC4007CFA4D /* ScreenTitleView.swift */,
+				1D43F0E126F5F907007CFA4D /* RectangularDashedView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1D43F0E326F5FA2B007CFA4D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		8B93CE957C6E7D4D49C0C66D /* Pods */ = {
@@ -295,11 +340,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D43F0C326F5B9F8007CFA4D /* TodayViewController.swift in Sources */,
+				1D43F0E026F5E364007CFA4D /* UIStackViewExtension.swift in Sources */,
 				1D43F0AF26F5B07C007CFA4D /* MainViewController.swift in Sources */,
 				1D43F0C526F5BA03007CFA4D /* ForecastViewController.swift in Sources */,
+				1D43F0DB26F5C852007CFA4D /* StyleExtensions.swift in Sources */,
+				1D43F0E226F5F907007CFA4D /* RectangularDashedView.swift in Sources */,
 				1D43F0AB26F5B07C007CFA4D /* AppDelegate.swift in Sources */,
 				1D43F0AD26F5B07C007CFA4D /* SceneDelegate.swift in Sources */,
+				1D43F0DE26F5CAC4007CFA4D /* ScreenTitleView.swift in Sources */,
+				1D43F0D426F5C4B3007CFA4D /* TodayInteractor.swift in Sources */,
+				1D43F0D626F5C4DC007CFA4D /* TodayInitializer.swift in Sources */,
 				1D43F0CB26F5C0DE007CFA4D /* R.generated.swift in Sources */,
+				1D43F0D826F5C7DC007CFA4D /* TodayViewController+Layout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
