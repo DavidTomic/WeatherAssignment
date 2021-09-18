@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  Weather
+
+  Created by David Tomić on 18.09.2021..
+  
+*/
+"tab_bar_item_title_today" = "Today";
+"tab_bar_item_title_forecast" = "Forecast";
