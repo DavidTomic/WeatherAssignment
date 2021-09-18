@@ -11,5 +11,5 @@ target 'Weather' do
   # Pods for Weather
   pod 'SnapKit', '~> 5.0.1'
   pod 'R.swift', '~> 5.4.0'
-
+  pod 'SwiftLint'
 end

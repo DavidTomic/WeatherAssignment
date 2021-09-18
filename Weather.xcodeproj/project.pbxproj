@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -77,7 +77,6 @@
 				1A9D68B34171159467E6BE88 /* Pods-Weather.debug.xcconfig */,
 				932A5EF341D83061FDC9DCCB /* Pods-Weather.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -98,6 +97,7 @@
 			buildPhases = (
 				D663571EC7EEFF493687BB77 /* [CP] Check Pods Manifest.lock */,
 				1D43F0A326F5B07C007CFA4D /* Sources */,
+				1D43F0BE26F5B7CE007CFA4D /* Swiftlint */,
 				1D43F0A426F5B07C007CFA4D /* Frameworks */,
 				1D43F0A526F5B07C007CFA4D /* Resources */,
 				14A0D4D21017264597948679 /* [CP] Embed Pods Frameworks */,
@@ -172,6 +172,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Weather/Pods-Weather-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		1D43F0BE26F5B7CE007CFA4D /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
 		};
 		D663571EC7EEFF493687BB77 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

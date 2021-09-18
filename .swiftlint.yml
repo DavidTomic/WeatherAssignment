@@ -1,0 +1,40 @@
+disabled_rules: # rule identifiers to exclude from running
+ - trailing_whitespace
+ - line_length
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+ - ${PWD}/Pods
+ - R.generated.swift
+identifier_name:
+    min_length: # only min_length
+        warning: 4 # only warning
+    excluded: # excluded via string array
+        - id
+        - end
+        - key
+        - mac
+        - ses
+        - pub
+        - url
+        - URL
+        - red
+        - hex
+        - day
+        - lhs
+        - rhs
+        - nib
+        - tag
+        - pin
+        - x
+        - y
+        - app
+        - otp
+        - top
+        - min
+        - max
+        - ext
+        - pad
+        - iv
+        - gcm
+        - aes
+        - pan
+        - var
