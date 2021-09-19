@@ -56,7 +56,6 @@ class FirebaseDataStore: DataStore {
     // MARK: Current weather data
     
     func getCurrentWeatherData(latitude: Double, longitude: Double, completion: @escaping (CurrentWeather) -> Void) {
-        print("getCurrentWeatherData")
         firebaseCurrentWeatherDocument.getDocument { [weak self] snapshot, error in
             if let weather = try? snapshot?.data(as: CurrentWeather.self), error == nil {
                 completion(weather)
@@ -68,15 +67,12 @@ class FirebaseDataStore: DataStore {
     func subscribeForCurrentWeatherDataUpdates(completion: @escaping (CurrentWeather) -> Void) {
         firebaseCurrentWeatherDocument.addSnapshotListener { snapshot, error in
             if let weather = try? snapshot?.data(as: CurrentWeather.self), error == nil {
-                print("subscribeForCurrentWeatherDataUpdates completion")
                 completion(weather)
             }
         }
     }
     
     private func fetchNewCurrentWeatherData(latitude: Double, longitude: Double) {
-        print("fetchNewCurrentWeatherData")
-
         let request = NSMutableURLRequest(url: NSURL(string: "\(Constants.baseUrl)/weather?units=metric&lat=\(latitude)&lon=\(longitude)")! as URL,
                                           cachePolicy: .useProtocolCachePolicy,
                                           timeoutInterval: 10.0)
@@ -97,15 +93,12 @@ class FirebaseDataStore: DataStore {
     }
     
     private func saveWeatherCurrentDataToFirebase(weather: CurrentWeather) {
-        print("saveWeatherCurrentDataToFirebase")
         try? firebaseCurrentWeatherDocument.setData(from: weather)
     }
     
     // MARK: Forecast data
     
     func getForecastData(latitude: Double, longitude: Double, completion: @escaping (ForecastGroup) -> Void) {
-        print("getForecastData")
-
         firebaseForecastWeatherDocument.getDocument { [weak self] snapshot, error in
             if let forecastData = try? snapshot?.data(as: ForecastGroup.self), error == nil {
                 completion(forecastData)
@@ -117,16 +110,12 @@ class FirebaseDataStore: DataStore {
     func subscribeForForecastDataUpdates(completion: @escaping (ForecastGroup) -> Void) {
         firebaseForecastWeatherDocument.addSnapshotListener { snapshot, error in
             if let forecastData = try? snapshot?.data(as: ForecastGroup.self), error == nil {
-                print("subscribeForForecastDataUpdates completion")
-
                 completion(forecastData)
             }
         }
     }
     
     private func fetchNewForecastData(latitude: Double, longitude: Double) {
-        print("fetchNewForecastData")
-
         let request = NSMutableURLRequest(url: NSURL(string: "\(Constants.baseUrl)/forecast?units=metric&lat=\(latitude)&lon=\(longitude)")! as URL,
                                           cachePolicy: .useProtocolCachePolicy,
                                           timeoutInterval: 10.0)
@@ -148,8 +137,6 @@ class FirebaseDataStore: DataStore {
     }
     
     private func saveForecastDataToFirebase(forecast: ForecastGroup) {
-        print("saveForecastDataToFirebase")
-
         try? firebaseForecastWeatherDocument.setData(from: forecast)
     }
     

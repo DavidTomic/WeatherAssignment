@@ -48,18 +48,8 @@ extension LocationUtility: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
-        
-        var needRefreshLocation = currentFreshLocation == nil
-        
-        if !needRefreshLocation, let currentFreshLocation = currentFreshLocation,
-           location.distance(from: currentFreshLocation) > 1000 {
-            needRefreshLocation = true
-        }
-        
-        if needRefreshLocation {
-            currentFreshLocation = location
-            onLocationRefresh?(location)
-        }
+        currentFreshLocation = location
+        onLocationRefresh?(location)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) { }
