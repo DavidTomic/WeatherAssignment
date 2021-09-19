@@ -23,6 +23,13 @@
 		1D43F0DE26F5CAC4007CFA4D /* ScreenTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D43F0DD26F5CAC4007CFA4D /* ScreenTitleView.swift */; };
 		1D43F0E026F5E364007CFA4D /* UIStackViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D43F0DF26F5E364007CFA4D /* UIStackViewExtension.swift */; };
 		1D43F0E226F5F907007CFA4D /* RectangularDashedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D43F0E126F5F907007CFA4D /* RectangularDashedView.swift */; };
+		1D43F0E626F5FEDF007CFA4D /* FirebaseDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D43F0E526F5FEDF007CFA4D /* FirebaseDataStore.swift */; };
+		1D43F0E826F60121007CFA4D /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D43F0E726F60121007CFA4D /* CurrentWeather.swift */; };
+		1D43F0EA26F60291007CFA4D /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D43F0E926F60291007CFA4D /* UIAlertControllerExtension.swift */; };
+		1D43F0EC26F602B1007CFA4D /* UIWindowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D43F0EB26F602B1007CFA4D /* UIWindowExtension.swift */; };
+		1D43F0EE26F605EB007CFA4D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D43F0ED26F605EB007CFA4D /* GoogleService-Info.plist */; };
+		1D43F0F026F63FDF007CFA4D /* TodayPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D43F0EF26F63FDF007CFA4D /* TodayPresenter.swift */; };
+		1DD3A1EF26F6534400CD441B /* LocationUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD3A1EE26F6534400CD441B /* LocationUtility.swift */; };
 		9FA6D5C55D24E82E784F0925 /* Pods_Weather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54D6D798055C714FBA7B876A /* Pods_Weather.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +53,13 @@
 		1D43F0DD26F5CAC4007CFA4D /* ScreenTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTitleView.swift; sourceTree = "<group>"; };
 		1D43F0DF26F5E364007CFA4D /* UIStackViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewExtension.swift; sourceTree = "<group>"; };
 		1D43F0E126F5F907007CFA4D /* RectangularDashedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangularDashedView.swift; sourceTree = "<group>"; };
+		1D43F0E526F5FEDF007CFA4D /* FirebaseDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataStore.swift; sourceTree = "<group>"; };
+		1D43F0E726F60121007CFA4D /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
+		1D43F0E926F60291007CFA4D /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
+		1D43F0EB26F602B1007CFA4D /* UIWindowExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindowExtension.swift; sourceTree = "<group>"; };
+		1D43F0ED26F605EB007CFA4D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1D43F0EF26F63FDF007CFA4D /* TodayPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayPresenter.swift; sourceTree = "<group>"; };
+		1DD3A1EE26F6534400CD441B /* LocationUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationUtility.swift; sourceTree = "<group>"; };
 		54D6D798055C714FBA7B876A /* Pods_Weather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Weather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		932A5EF341D83061FDC9DCCB /* Pods-Weather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.release.xcconfig"; path = "Target Support Files/Pods-Weather/Pods-Weather.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,8 +97,10 @@
 		1D43F0A926F5B07C007CFA4D /* Weather */ = {
 			isa = PBXGroup;
 			children = (
+				1DD3A1ED26F6532E00CD441B /* LocationUtility */,
 				1D43F0C026F5B9AB007CFA4D /* AppDelegate */,
 				1D43F0C126F5B9D5007CFA4D /* Controllers */,
+				1D43F0E426F5FE6D007CFA4D /* DataStore */,
 				1D43F0D926F5C848007CFA4D /* Extensions */,
 				1D43F0E326F5FA2B007CFA4D /* Models */,
 				1D43F0C826F5BB37007CFA4D /* Resources */,
@@ -115,9 +131,10 @@
 		1D43F0C626F5BA0C007CFA4D /* Today */ = {
 			isa = PBXGroup;
 			children = (
-				1D43F0C226F5B9F8007CFA4D /* TodayViewController.swift */,
-				1D43F0D326F5C4B3007CFA4D /* TodayInteractor.swift */,
 				1D43F0D526F5C4DC007CFA4D /* TodayInitializer.swift */,
+				1D43F0D326F5C4B3007CFA4D /* TodayInteractor.swift */,
+				1D43F0EF26F63FDF007CFA4D /* TodayPresenter.swift */,
+				1D43F0C226F5B9F8007CFA4D /* TodayViewController.swift */,
 				1D43F0D726F5C7DC007CFA4D /* TodayViewController+Layout.swift */,
 			);
 			path = Today;
@@ -139,6 +156,7 @@
 				1D43F0B526F5B07F007CFA4D /* LaunchScreen.storyboard */,
 				1D43F0D226F5C30E007CFA4D /* Localizable.strings */,
 				1D43F0CA26F5C0DE007CFA4D /* R.generated.swift */,
+				1D43F0ED26F605EB007CFA4D /* GoogleService-Info.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -148,6 +166,8 @@
 			children = (
 				1D43F0DA26F5C852007CFA4D /* StyleExtensions.swift */,
 				1D43F0DF26F5E364007CFA4D /* UIStackViewExtension.swift */,
+				1D43F0E926F60291007CFA4D /* UIAlertControllerExtension.swift */,
+				1D43F0EB26F602B1007CFA4D /* UIWindowExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -164,8 +184,25 @@
 		1D43F0E326F5FA2B007CFA4D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1D43F0E726F60121007CFA4D /* CurrentWeather.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		1D43F0E426F5FE6D007CFA4D /* DataStore */ = {
+			isa = PBXGroup;
+			children = (
+				1D43F0E526F5FEDF007CFA4D /* FirebaseDataStore.swift */,
+			);
+			path = DataStore;
+			sourceTree = "<group>";
+		};
+		1DD3A1ED26F6532E00CD441B /* LocationUtility */ = {
+			isa = PBXGroup;
+			children = (
+				1DD3A1EE26F6534400CD441B /* LocationUtility.swift */,
+			);
+			path = LocationUtility;
 			sourceTree = "<group>";
 		};
 		8B93CE957C6E7D4D49C0C66D /* Pods */ = {
@@ -247,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D43F0B726F5B07F007CFA4D /* LaunchScreen.storyboard in Resources */,
+				1D43F0EE26F605EB007CFA4D /* GoogleService-Info.plist in Resources */,
 				1D43F0D026F5C30E007CFA4D /* Localizable.strings in Resources */,
 				1D43F0B426F5B07F007CFA4D /* Assets.xcassets in Resources */,
 			);
@@ -343,15 +381,21 @@
 				1D43F0E026F5E364007CFA4D /* UIStackViewExtension.swift in Sources */,
 				1D43F0AF26F5B07C007CFA4D /* MainViewController.swift in Sources */,
 				1D43F0C526F5BA03007CFA4D /* ForecastViewController.swift in Sources */,
+				1D43F0EA26F60291007CFA4D /* UIAlertControllerExtension.swift in Sources */,
+				1D43F0E826F60121007CFA4D /* CurrentWeather.swift in Sources */,
 				1D43F0DB26F5C852007CFA4D /* StyleExtensions.swift in Sources */,
 				1D43F0E226F5F907007CFA4D /* RectangularDashedView.swift in Sources */,
+				1D43F0E626F5FEDF007CFA4D /* FirebaseDataStore.swift in Sources */,
 				1D43F0AB26F5B07C007CFA4D /* AppDelegate.swift in Sources */,
 				1D43F0AD26F5B07C007CFA4D /* SceneDelegate.swift in Sources */,
 				1D43F0DE26F5CAC4007CFA4D /* ScreenTitleView.swift in Sources */,
+				1D43F0F026F63FDF007CFA4D /* TodayPresenter.swift in Sources */,
 				1D43F0D426F5C4B3007CFA4D /* TodayInteractor.swift in Sources */,
+				1D43F0EC26F602B1007CFA4D /* UIWindowExtension.swift in Sources */,
 				1D43F0D626F5C4DC007CFA4D /* TodayInitializer.swift in Sources */,
 				1D43F0CB26F5C0DE007CFA4D /* R.generated.swift in Sources */,
 				1D43F0D826F5C7DC007CFA4D /* TodayViewController+Layout.swift in Sources */,
+				1DD3A1EF26F6534400CD441B /* LocationUtility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

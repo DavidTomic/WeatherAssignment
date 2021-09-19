@@ -7,3 +7,8 @@
 */
 "tab_bar_item_title_today" = "Today";
 "tab_bar_item_title_forecast" = "Forecast";
+
+"generic_error" = "Something went wrong, please check your internet connection and try again.";
+"generic_ok" = "Ok";
+
+"btn_share" = "Share";

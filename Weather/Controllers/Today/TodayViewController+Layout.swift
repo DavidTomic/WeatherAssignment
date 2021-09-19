@@ -35,11 +35,19 @@ extension TodayViewController {
         
         btnShare.style(parentView: vStack)
             .style(titleColor: .systemOrange)
+            .style(target: self, action: #selector(onShareButtonClick))
         
         // using helper view to better support equalSpacing
         UIView().style(parentView: vStack)
             .styleMakeConstraints { make in
                 make.height.equalTo(1)
+            }
+        
+        lblOffline.style(parentView: view)
+            .style(textAlignment: .center)
+            .style(textColor: .lightGray)
+            .styleMakeConstraints { make in
+                make.leading.bottom.trailing.equalTo(view.safeAreaInsets).inset(10)
             }
     }
     
@@ -65,6 +73,8 @@ extension TodayViewController {
 class WeatherDetailsView: UIView {
     
     private let vStack = UIStackView()
+    private let topLine = UIView()
+    private let bottomLine = UIView()
     
     var viewModel: [WeatherDetailModel] = [] {
         didSet {
@@ -82,7 +92,8 @@ class WeatherDetailsView: UIView {
     }
     
     private func setupView() {
-        let topLine = UIView().style(parentView: self)
+        topLine.style(parentView: self)
+            .style(isHidden: true)
             .style(backgroundColor: .lightGray.withAlphaComponent(0.5))
             .styleMakeConstraints { make in
                 make.height.equalTo(1)
@@ -90,7 +101,8 @@ class WeatherDetailsView: UIView {
                 make.top.centerX.equalToSuperview()
             }
         
-        let bottomLine = UIView().style(parentView: self)
+        bottomLine.style(parentView: self)
+            .style(isHidden: true)
             .style(backgroundColor: .lightGray.withAlphaComponent(0.5))
             .styleMakeConstraints { make in
                 make.height.equalTo(1)
@@ -99,17 +111,20 @@ class WeatherDetailsView: UIView {
             }
         
         vStack.style(axis: .vertical)
+            .style(spacing: 10)
             .style(parentView: self)
             .styleMakeConstraints { make in
                 make.leading.trailing.equalToSuperview()
                 make.top.equalTo(topLine).offset(25)
                 make.bottom.equalTo(bottomLine).offset(-25)
             }
-        
     }
     
     private func updateUI() {
         vStack.clearArrangedSubviews()
+        topLine.style(isHidden: viewModel.count == 0)
+        bottomLine.style(isHidden: viewModel.count == 0)
+        
         var hStack = UIStackView()
         
         for index in 0..<viewModel.count {
@@ -169,6 +184,8 @@ private class WeatherDetailView: UIView {
         
         lblTitle.style(parentView: vStack)
             .style(text: viewModel.title)
+            .style(font: UIFont.systemFont(ofSize: 12))
+            .style(textColor: .black)
     }
 }
 

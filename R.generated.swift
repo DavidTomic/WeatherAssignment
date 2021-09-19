@@ -130,14 +130,66 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 3 images.
+  /// This `R.file` struct is generated, and contains static references to 1 files.
+  struct file {
+    /// Resource file `GoogleService-Info.plist`.
+    static let googleServiceInfoPlist = Rswift.FileResource(bundle: R.hostingBundle, name: "GoogleService-Info", pathExtension: "plist")
+
+    /// `bundle.url(forResource: "GoogleService-Info", withExtension: "plist")`
+    static func googleServiceInfoPlist(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.googleServiceInfoPlist
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    fileprivate init() {}
+  }
+
+  /// This `R.image` struct is generated, and contains static references to 8 images.
   struct image {
+    /// Image `clouds`.
+    static let clouds = Rswift.ImageResource(bundle: R.hostingBundle, name: "clouds")
+    /// Image `compass`.
+    static let compass = Rswift.ImageResource(bundle: R.hostingBundle, name: "compass")
+    /// Image `humidity`.
+    static let humidity = Rswift.ImageResource(bundle: R.hostingBundle, name: "humidity")
+    /// Image `pressure`.
+    static let pressure = Rswift.ImageResource(bundle: R.hostingBundle, name: "pressure")
     /// Image `sun`.
     static let sun = Rswift.ImageResource(bundle: R.hostingBundle, name: "sun")
     /// Image `tab_item_forecast`.
     static let tab_item_forecast = Rswift.ImageResource(bundle: R.hostingBundle, name: "tab_item_forecast")
     /// Image `tab_item_today`.
     static let tab_item_today = Rswift.ImageResource(bundle: R.hostingBundle, name: "tab_item_today")
+    /// Image `wind`.
+    static let wind = Rswift.ImageResource(bundle: R.hostingBundle, name: "wind")
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "clouds", bundle: ..., traitCollection: ...)`
+    static func clouds(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.clouds, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "compass", bundle: ..., traitCollection: ...)`
+    static func compass(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.compass, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "humidity", bundle: ..., traitCollection: ...)`
+    static func humidity(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.humidity, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "pressure", bundle: ..., traitCollection: ...)`
+    static func pressure(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.pressure, compatibleWith: traitCollection)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UIImage(named: "sun", bundle: ..., traitCollection: ...)`
@@ -157,6 +209,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "tab_item_today", bundle: ..., traitCollection: ...)`
     static func tab_item_today(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.tab_item_today, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "wind", bundle: ..., traitCollection: ...)`
+    static func wind(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.wind, compatibleWith: traitCollection)
     }
     #endif
 
@@ -195,12 +254,24 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 2 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 5 localization keys.
     struct localizable {
       /// en translation: Forecast
       ///
       /// Locales: en
       static let tab_bar_item_title_forecast = Rswift.StringResource(key: "tab_bar_item_title_forecast", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Ok
+      ///
+      /// Locales: en
+      static let generic_ok = Rswift.StringResource(key: "generic_ok", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Share
+      ///
+      /// Locales: en
+      static let btn_share = Rswift.StringResource(key: "btn_share", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Something went wrong, please check your internet connection and try again.
+      ///
+      /// Locales: en
+      static let generic_error = Rswift.StringResource(key: "generic_error", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Today
       ///
       /// Locales: en
@@ -219,6 +290,51 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("tab_bar_item_title_forecast", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Ok
+      ///
+      /// Locales: en
+      static func generic_ok(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("generic_ok", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "generic_ok"
+        }
+
+        return NSLocalizedString("generic_ok", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Share
+      ///
+      /// Locales: en
+      static func btn_share(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("btn_share", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "btn_share"
+        }
+
+        return NSLocalizedString("btn_share", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Something went wrong, please check your internet connection and try again.
+      ///
+      /// Locales: en
+      static func generic_error(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("generic_error", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "generic_error"
+        }
+
+        return NSLocalizedString("generic_error", bundle: bundle, comment: "")
       }
 
       /// en translation: Today
