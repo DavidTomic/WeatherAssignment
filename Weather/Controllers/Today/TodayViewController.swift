@@ -24,7 +24,7 @@ protocol TodayViewControllerModel {
 class TodayViewController: UIViewController, TodayDisplayController {
     
     let screenTitleView = ScreenTitleView()
-    let imageViewWeather = UIImageView()
+    let imageViewWeather = AnimatedImageView()
     let lblLocation = UILabel()
     let lblTemperature = UILabel()
     let btnShare = UIButton()
