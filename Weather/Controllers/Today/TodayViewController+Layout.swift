@@ -188,8 +188,3 @@ private class WeatherDetailView: UIView {
             .style(textColor: .black)
     }
 }
-
-struct WeatherDetailModel {
-    let image: UIImage?
-    let title: String
-}

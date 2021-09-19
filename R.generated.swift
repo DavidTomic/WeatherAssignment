@@ -144,7 +144,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 8 images.
+  /// This `R.image` struct is generated, and contains static references to 11 images.
   struct image {
     /// Image `clouds`.
     static let clouds = Rswift.ImageResource(bundle: R.hostingBundle, name: "clouds")
@@ -152,8 +152,14 @@ struct R: Rswift.Validatable {
     static let compass = Rswift.ImageResource(bundle: R.hostingBundle, name: "compass")
     /// Image `humidity`.
     static let humidity = Rswift.ImageResource(bundle: R.hostingBundle, name: "humidity")
+    /// Image `overcast clouds`.
+    static let overcastClouds = Rswift.ImageResource(bundle: R.hostingBundle, name: "overcast clouds")
     /// Image `pressure`.
     static let pressure = Rswift.ImageResource(bundle: R.hostingBundle, name: "pressure")
+    /// Image `rain`.
+    static let rain = Rswift.ImageResource(bundle: R.hostingBundle, name: "rain")
+    /// Image `scattered clouds`.
+    static let scatteredClouds = Rswift.ImageResource(bundle: R.hostingBundle, name: "scattered clouds")
     /// Image `sun`.
     static let sun = Rswift.ImageResource(bundle: R.hostingBundle, name: "sun")
     /// Image `tab_item_forecast`.
@@ -185,9 +191,30 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "overcast clouds", bundle: ..., traitCollection: ...)`
+    static func overcastClouds(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.overcastClouds, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "pressure", bundle: ..., traitCollection: ...)`
     static func pressure(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.pressure, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "rain", bundle: ..., traitCollection: ...)`
+    static func rain(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.rain, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "scattered clouds", bundle: ..., traitCollection: ...)`
+    static func scatteredClouds(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.scatteredClouds, compatibleWith: traitCollection)
     }
     #endif
 

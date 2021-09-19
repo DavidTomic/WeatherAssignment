@@ -26,10 +26,10 @@ class TodayInteractor: TodayBusinessLogic {
     
     var dataStore: DataStore? {
         didSet {
-            dataStore?.subscribeForCurrentWeatherDataUpdates(completion: { [weak self] weather in
+            dataStore?.subscribeForCurrentWeatherDataUpdates { [weak self] weather in
                 self?.weather = weather
                 self?.presenter?.presentCurrentWeather(weather: weather)
-            })
+            }
         }
     }
     
@@ -48,7 +48,6 @@ class TodayInteractor: TodayBusinessLogic {
             DispatchQueue.main.async {
                 self?.presenter?.presentOfflineText(hasNetworkConnection: path.status == .satisfied)
             }
-            
             if path.status == .satisfied {
                 self?.fetchTodayWeather()
             }

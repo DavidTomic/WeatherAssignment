@@ -8,17 +8,17 @@
 import UIKit
 
 protocol TodayDisplayController {
-    func displayTodayWeather(viewModel: TodayViewModel)
+    func displayTodayWeather(viewModel: TodayViewControllerModel)
     func displayShareMenu(items: [Any])
     func displayOfflineLabel(text: String?)
 }
 
-struct TodayViewModel {
-    let weatherImage: UIImage?
-    let location: String
-    let temperature: String
-    let weatherDetails: [WeatherDetailModel]
-    let shareTitle: String
+protocol TodayViewControllerModel {
+    var weatherImage: UIImage? { get }
+    var location: String { get }
+    var temperature: String { get }
+    var weatherDetails: [WeatherDetailModel] { get }
+    var shareTitle: String { get }
 }
 
 class TodayViewController: UIViewController, TodayDisplayController {
@@ -59,7 +59,7 @@ class TodayViewController: UIViewController, TodayDisplayController {
         interactor?.shareWeatherInfo()
     }
     
-    func displayTodayWeather(viewModel: TodayViewModel) {
+    func displayTodayWeather(viewModel: TodayViewControllerModel) {
         screenTitleView.title = self.title
         imageViewWeather.style(image: viewModel.weatherImage)
         lblLocation.style(text: viewModel.location)

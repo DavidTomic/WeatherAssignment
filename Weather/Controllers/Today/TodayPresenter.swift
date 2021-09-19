@@ -5,7 +5,7 @@
 //  Created by David Tomić on 18.09.2021..
 //
 
-import Foundation
+import UIKit
 
 protocol TodayPresenterLogic {
     func presentCurrentWeather(weather: CurrentWeather)
@@ -15,6 +15,7 @@ protocol TodayPresenterLogic {
 
 class TodayPresenter: TodayPresenterLogic {
     
+    private let weatherIconUtility = WeatherIconUtility()
     var displayController: TodayDisplayController?
     
     func presentCurrentWeather(weather: CurrentWeather) {
@@ -37,7 +38,7 @@ class TodayPresenter: TodayPresenterLogic {
             weatherDetails.append(WeatherDetailModel(image: R.image.compass(), title: "\(windDegree)°"))
         }
 
-        let todayViewModel = TodayViewModel(weatherImage: R.image.sun(),
+        let todayViewModel = TodayDataViewControllerModel(weatherImage: weatherIconUtility.getIconImage(iconId: weather.iconId),
                                             location: "\(weather.name ?? "-")" ,
                                             temperature: "\(formattedTemp)°C | \(weather.weatherDescription?.capitalized ?? "")",
                                             weatherDetails: weatherDetails,
@@ -54,4 +55,12 @@ class TodayPresenter: TodayPresenterLogic {
     func presentOfflineText(hasNetworkConnection: Bool) {
         displayController?.displayOfflineLabel(text: hasNetworkConnection ? nil : "showing offline data")
     }
+}
+
+struct TodayDataViewControllerModel: TodayViewControllerModel {
+    let weatherImage: UIImage?
+    let location: String
+    let temperature: String
+    let weatherDetails: [WeatherDetailModel]
+    let shareTitle: String
 }

@@ -41,7 +41,7 @@ class ScreenTitleView: UIView {
                 make.center.equalToSuperview()
             }
         
-        UIView().style(backgroundColor: .systemBlue)
+        UIView().style(backgroundColor: .systemBlue.withAlphaComponent(0.5))
             .style(parentView: self)
             .styleMakeConstraints { make in
                 make.leading.bottom.trailing.equalToSuperview()

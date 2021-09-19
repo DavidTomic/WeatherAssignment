@@ -9,6 +9,8 @@ import Foundation
 
 struct CurrentWeatherApi: Codable {
     
+    private static let dateFormatter = DateFormatter()
+    
     private enum RootKeys: String, CodingKey {
         case name
         case main
@@ -16,6 +18,7 @@ struct CurrentWeatherApi: Codable {
         case wind
         case clouds
         case weather
+        case date = "dt_txt"
     }
     
     private enum MainKeys: String, CodingKey {
@@ -26,6 +29,7 @@ struct CurrentWeatherApi: Codable {
     
     private enum WeatherKeys: String, CodingKey {
         case main
+        case icon
     }
     
     private enum WindKeys: String, CodingKey {
@@ -46,6 +50,8 @@ struct CurrentWeatherApi: Codable {
     var cloudsPercentage: Int?
     var visibility: Int?
     var weatherDescription: String?
+    var iconId: String?
+    var date: Date?
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: RootKeys.self)
@@ -55,6 +61,7 @@ struct CurrentWeatherApi: Codable {
         if var weatherContainerArray = try? container.nestedUnkeyedContainer(forKey: .weather) {
             if let weatherContainer = try? weatherContainerArray.nestedContainer(keyedBy: WeatherKeys.self) {
                 weatherDescription = try? weatherContainer.decode(String.self, forKey: .main)
+                iconId = try? weatherContainer.decode(String.self, forKey: .icon)
             }
         }
         
@@ -72,6 +79,11 @@ struct CurrentWeatherApi: Codable {
         if let cloudsContainer = try? container.nestedContainer(keyedBy: CloudsKeys.self, forKey: .clouds) {
             cloudsPercentage = try? cloudsContainer.decode(Int.self, forKey: .cloudity)
         }
+        
+        if let dateString = try? container.decode(String.self, forKey: .date) {
+            CurrentWeatherApi.dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            date = CurrentWeatherApi.dateFormatter.date(from: dateString)
+        }
     }
     
     var currentWeather: CurrentWeather {
@@ -83,7 +95,8 @@ struct CurrentWeatherApi: Codable {
                               windDegree: self.windDegree,
                               cloudsPercentage: self.cloudsPercentage,
                               visibility: self.visibility,
-                              weatherDescription: self.weatherDescription)
+                              weatherDescription: self.weatherDescription,
+                              iconId: self.iconId)
     }
 }
 
@@ -97,4 +110,5 @@ struct CurrentWeather: Codable {
     var cloudsPercentage: Int?
     var visibility: Int?
     var weatherDescription: String?
+    var iconId: String?
 }
